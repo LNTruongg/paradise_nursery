@@ -1,55 +1,35 @@
 import "./App.css";
+import { useState } from "react";
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-
-import AboutUs from "./components/AboutUs";
 import ProductList from "./components/ProductList";
-import CartItem from "./components/CartItem";
-
-function Home() {
-  return (
-    <div className="landing">
-      <h1>Paradise Nursery</h1>
-
-      <p>Beautiful plants for your home</p>
-
-      <Link to="/products">
-        <button>Get Started</button>
-      </Link>
-    </div>
-  );
-}
+import AboutUs from "./components/AboutUs";
 
 function App() {
+  const [showProductList, setShowProductList] =
+    useState(false);
+
+  if (showProductList) {
+    return <ProductList />;
+  }
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Home />
-              <AboutUs />
-            </>
-          }
-        />
+    <div className="landing">
+      <h1>Welcome to Paradise Nursery</h1>
 
-        <Route
-          path="/products"
-          element={<ProductList />}
-        />
+      <p>
+        Beautiful plants for your home and office
+      </p>
 
-        <Route
-          path="/cart"
-          element={<CartItem />}
-        />
-      </Routes>
-    </BrowserRouter>
+      <button
+        onClick={() =>
+          setShowProductList(true)
+        }
+      >
+        Get Started
+      </button>
+
+      <AboutUs />
+    </div>
   );
 }
 
