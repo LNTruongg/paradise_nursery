@@ -1,11 +1,11 @@
-# Paradise Nursery Shopping Application
+# e-plantShopping
 
-A React and Redux shopping cart application for an online plant nursery.
+Paradise Nursery Shopping Application built with React and Redux.
 
 Features:
 - Browse houseplants
-- Add to cart
+- Add plants to cart
 - Increase/decrease quantity
-- Remove products
-- Dynamic cart total
-- Redux state management
+- Remove items
+- Dynamic cart updates
+- Shopping cart functionality
