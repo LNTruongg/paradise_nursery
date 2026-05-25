@@ -50,7 +50,17 @@ const cartSlice = createSlice({
     },
   },
 });
+updateQuantity: (state, action) => {
+  const { id, quantity } = action.payload;
 
+  const item = state.items.find(
+    (item) => item.id === id
+  );
+
+  if (item) {
+    item.quantity = quantity;
+  }
+},
 export const {
   addItem,
   removeItem,
